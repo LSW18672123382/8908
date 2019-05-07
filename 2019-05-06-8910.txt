@@ -1,0 +1,138 @@
+﻿
+l.路由传参：http://localhost:8080/#/home/listdetail/1/1
+  路由配置： path:"/home/listdetail/:typeid/:did",
+  传参：
+      this.$router.push({
+          path: `/home/listdetail/${a}/${val}`,
+      })
+  接参：
+    this.$route.params.id
+2.通过路由属性中的name来确定匹配的路由，通过params来传递参数。
+  路由配置：
+     {
+          path:"/home/listdetail",
+          name:"Listdetail",
+          component:ListDetail
+        },
+  传参：
+  this.$router.push({
+              name: 'Listdetail',
+              params: {
+                typeid:a,
+                did:val
+              }
+   })
+   接收：this.$route.params.id
+ 3.查询字符串http://localhost:8080/#/home/listdetail?typeid=1&did=1
+ 路由配置：
+   {
+        path:"/home/listdetail",
+        name:"Listdetail",
+        component:ListDetail
+      },
+ 传参：
+ this.$router.push({
+           path: '/describe',
+           query: {
+             id: id
+           }
+         })
+  接收：this.$route.query.id
+
+  作业：1.传参的三种方式操作一遍，实现新闻列表进入新闻详情页面传参，使用查询字符串的方式跳转
+
+
+
+git:
+
+1.了解
+
+版本控制，多人合作
+
+一个项目：三个程序员共同开发
+
+第一种：各自做各自的，合并，冲突
+
+第二种：使用版本控制工具（服务器） A B C
+
+上传或下载代码 更新代码
+
+豆瓣 所有目录都在git上  
+
+下班之前：提交自己的代码 A:home   B:cate   C mine和home
+
+A:home   C:home git提示那个地方冲突了，保留那个代码 ==》避免手动合并代码的麻烦
+
+服务器上的代码是最新最完整的
+
+上班第一件事：
+
+更新自己的代码：让自己的电脑上的代码和服务器的代码同步
+
+开始自己的任务：...
+
+补充：登上git,看谁提交了什么代码，历史记录
+
+恢复某一时刻的代码...
+
+
+git和svn:版本控制工具
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+git：分布式 ==》gitLib(公司，和git的指令基本一致)
+
+svn：集中式
+
+开源：github 平台，好的项目，上传到github（朋友圈或微博），别的程序员看的了，点赞，收藏，关注
+
+模拟：自己电脑上的磁盘文件==》自己电脑服务器上==》github
+
+公司：自己电脑上的磁盘文件==》自己电脑服务器上==》公司的服务器
+
+
+第一步：注册github 公司配置一个账号和密码
+
+第二步：配置自己的电脑和账号的关系
+
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+查看是否配置成功：git config --list
+
+第三步：初始化仓库 想管理哪个项目，就进入哪个项目 git init
+
+git init
+
+第四步:
+
+往版本库中添加文件
+
+上传单个文件：git add 文件名
+
+上传所有文件：git add .
+
+查看添加版本库的状态 git status
+
+第五步：提交
+
+git commit -m '注释'
+
+git log
+
+第六步：关联本地仓库和github仓库
+
+git remote add origin https://github.com/mswuli/8910.git
+
+git push -u origin master
+
+再次提交到远程 
+
+git add .
+
+git commit -m "a"  
+
+git push
+
+同步远程仓库和自己的电脑： git pull
+
+
